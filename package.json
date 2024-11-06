@@ -1,0 +1,27 @@
+{
+  "name": "pulse",
+  "module": "index.ts",
+  "type": "module",
+  "types": "index.d.ts",
+  "description": "Pulse - scheduled DOM updates, debounced with requestAnimationFrame",
+  "license": "MIT",
+  "keywords": [
+    "Pulse",
+    "Scheduler",
+    "DOM",
+    "requestAnimationFrame"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "bun build index.ts --outdir ./ --minify && bunx tsc",
+    "test": "bun test"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}
