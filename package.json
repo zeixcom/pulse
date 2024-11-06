@@ -1,5 +1,8 @@
 {
   "name": "pulse",
+  "version": "0.9.0",
+  "author": "Esther Brunner",
+  "main": "index.js",
   "module": "index.ts",
   "type": "module",
   "types": "index.d.ts",
