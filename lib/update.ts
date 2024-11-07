@@ -11,7 +11,7 @@ import { isComment, safeSetAttribute } from './util'
  * @param attributes - The attributes to set on the new element
  * @returns {Promise<Element>}
  */
-const ce = (
+const ce = /*#__PURE__*/ (
 	parent: Element,
 	tag: string,
 	attributes: Record<string, string> = {},
@@ -31,7 +31,7 @@ const ce = (
  * @param element -	The element to remove
  * @returns {Promise<null>}
  */
-const re = (
+const re = /*#__PURE__*/ (
 	element: Element
 ): Promise<null> => enqueue(() => {
 	element.remove()
@@ -45,7 +45,7 @@ const re = (
  * @param text - The new text content
  * @returns {Promise<Element>}
  */
-const st = (
+const st = /*#__PURE__*/ (
 	element: Element,
 	text: string
 ): Promise<Element> => enqueue(() => {
@@ -64,7 +64,7 @@ const st = (
  * @param value - The new value
  * @returns {Promise<Element>}
  */
-const sa = (
+const sa = /*#__PURE__*/ (
 	element: Element,
     attribute: string,
     value: string
@@ -80,7 +80,7 @@ const sa = (
  * @param attribute - The attribute to remove
  * @returns {Promise<Element>}
  */
-const ra = (
+const ra = /*#__PURE__*/ (
 	element: Element,
     attribute: string
 ): Promise<Element> => enqueue(() => {
@@ -96,7 +96,7 @@ const ra = (
  * @param value - The new value
  * @returns {Promise<Element>}
  */
-const ta = (
+const ta = /*#__PURE__*/ (
 	element: Element,
     attribute: string,
     value: boolean
@@ -113,7 +113,7 @@ const ta = (
  * @param value - The new value
  * @returns {Promise<Element>}
  */
-const tc = (
+const tc = /*#__PURE__*/ (
 	element: Element,
     token: string,
     value: boolean
@@ -130,7 +130,7 @@ const tc = (
  * @param value - The new value
  * @returns {Promise<Element>}
  */
-const ss = (
+const ss = /*#__PURE__*/ (
 	element: HTMLElement | SVGElement | MathMLElement,
     property: string,
     value: string
@@ -146,7 +146,7 @@ const ss = (
  * @param property - The style property to remove
  * @returns {Promise<Element>}
  */
-const rs = (
+const rs = /*#__PURE__*/ (
 	element: HTMLElement | SVGElement | MathMLElement,
     property: string
 ): Promise<Element> => enqueue(() => {
@@ -161,12 +161,12 @@ const rs = (
  * @param content - The new inner HTML
  * @returns {Promise<Element>}
  */
-const dangerouslySetInnerHTML = (
+const dangerouslySetInnerHTML = /*#__PURE__*/ (
 	element: HTMLElement,
     content: string
 ): Promise<Element> => enqueue(() => {
 	element.innerHTML = content
     return element
-}, [element, 'i'])
+}, [element, 'h'])
 
 export { ce, re, st, sa, ra, ta, tc, ss, rs, dangerouslySetInnerHTML }

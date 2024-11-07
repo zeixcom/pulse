@@ -1,10 +1,10 @@
-const isComment: (node: Node) => node is Comment = (node: Node): node is Comment =>
+const isComment: /*#__PURE__*/ (node: Node) => node is Comment = (node: Node): node is Comment =>
 	node.nodeType === Node.COMMENT_NODE
 
-const isSafeAttribute = (attr: string): boolean =>
+const isSafeAttribute = /*#__PURE__*/ (attr: string): boolean =>
 	!/^on/i.test(attr)
 
-const isSafeURL = (value: string): boolean => {
+const isSafeURL = /*#__PURE__*/ (value: string): boolean => {
 	if (/^(mailto|tel):/i.test(value)) return true
 	if (value.includes('://')) {
 		try {
@@ -17,7 +17,11 @@ const isSafeURL = (value: string): boolean => {
 	return true
 }
 
-const safeSetAttribute = (element: Element, attr: string, value: string): void => {
+const safeSetAttribute = /*#__PURE__*/ (
+	element: Element,
+	attr: string,
+	value: string
+): void => {
 	if (!isSafeAttribute(attr)) throw new Error(`Unsafe attribute: ${attr}`)
 	if (!isSafeURL(value)) throw new Error(`Unsafe URL for ${attr}: ${value}`)
 	element.setAttribute(attr, value)

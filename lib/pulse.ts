@@ -54,6 +54,7 @@ const enqueue = <T>(
 	requestTick()
 })
 
-const animationFrame = async () => new Promise(requestAnimationFrame)
+const animationFrame = /*#__PURE__*/ async () =>
+	new Promise(requestAnimationFrame)
 
-export { enqueue, animationFrame }
+export { type EnqueueDedupe, enqueue, animationFrame }

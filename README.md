@@ -1,5 +1,5 @@
 # Pulse
 
-Version 0.9.0
+Version 0.9.1
 
 **Pulse** schedules DOM updates, debounced with requestAnimationFrame
