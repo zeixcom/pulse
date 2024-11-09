@@ -9,14 +9,14 @@ import { isComment, safeSetAttribute } from './util'
  * @param element - The parent element to append the new element to
  * @param tag - The tag name of the new element
  * @param attributes - The attributes to set on the new element
- * @returns {Promise<Element>}
+ * @returns {Promise<HTMLElement>}
  */
-const ce = /*#__PURE__*/ (
-	parent: Element,
+const ce = /*#__PURE__*/ <E extends Element>(
+	parent: E,
 	tag: string,
 	attributes: Record<string, string> = {},
 	text?: string
-): Promise<Element> => enqueue(() => {
+): Promise<HTMLElement> => enqueue(() => {
 	const child = document.createElement(tag)
 	for (const [key, value] of Object.entries(attributes))
 		safeSetAttribute(child, key, value)
@@ -31,8 +31,8 @@ const ce = /*#__PURE__*/ (
  * @param element -	The element to remove
  * @returns {Promise<null>}
  */
-const re = /*#__PURE__*/ (
-	element: Element
+const re = /*#__PURE__*/ <E extends Element>(
+	element: E
 ): Promise<null> => enqueue(() => {
 	element.remove()
 	return null
@@ -43,12 +43,12 @@ const re = /*#__PURE__*/ (
  * 
  * @param element - The element whose text content to update
  * @param text - The new text content
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const st = /*#__PURE__*/ (
-	element: Element,
+const st = /*#__PURE__*/ <E extends Element>(
+	element: E,
 	text: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	Array.from(element.childNodes)
 		.filter(node => !isComment(node))
 		.forEach(node => node.remove())
@@ -62,13 +62,13 @@ const st = /*#__PURE__*/ (
  * @param element - The element whose attribute to update
  * @param attribute - The attribute to update
  * @param value - The new value
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const sa = /*#__PURE__*/ (
-	element: Element,
+const sa = /*#__PURE__*/ <E extends Element>(
+	element: E,
     attribute: string,
     value: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	safeSetAttribute(element, attribute, value)
 	return element
 }, [element, `a:${attribute}`])
@@ -78,12 +78,12 @@ const sa = /*#__PURE__*/ (
  * 
  * @param element - The element whose attribute to remove
  * @param attribute - The attribute to remove
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const ra = /*#__PURE__*/ (
-	element: Element,
+const ra = /*#__PURE__*/ <E extends Element>(
+	element: E,
     attribute: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.removeAttribute(attribute)
 	return element
 }, [element, `a:${attribute}`])
@@ -94,13 +94,13 @@ const ra = /*#__PURE__*/ (
  * @param element - The element whose attribute to toggle
  * @param attribute - The attribute to toggle
  * @param value - The new value
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const ta = /*#__PURE__*/ (
-	element: Element,
+const ta = /*#__PURE__*/ <E extends Element>(
+	element: E,
     attribute: string,
     value: boolean
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.toggleAttribute(attribute, value)
 	return element
 }, [element, `a:${attribute}`])
@@ -111,13 +111,13 @@ const ta = /*#__PURE__*/ (
  * @param element - The element whose class to toggle
  * @param token - The class token to toggle
  * @param value - The new value
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const tc = /*#__PURE__*/ (
-	element: Element,
+const tc = /*#__PURE__*/ <E extends Element>(
+	element: E,
     token: string,
     value: boolean
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.classList.toggle(token, value)
 	return element
 }, [element, `c:${token}`])
@@ -128,13 +128,13 @@ const tc = /*#__PURE__*/ (
  * @param element - The element whose style property to update
  * @param property - The style property to update
  * @param value - The new value
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const ss = /*#__PURE__*/ (
-	element: HTMLElement | SVGElement | MathMLElement,
+const ss = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
+	element: E,
     property: string,
     value: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.style.setProperty(property, value)
 	return element
 }, [element, `s:${property}`])
@@ -144,12 +144,12 @@ const ss = /*#__PURE__*/ (
  * 
  * @param element - The element to update
  * @param property - The style property to remove
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const rs = /*#__PURE__*/ (
-	element: HTMLElement | SVGElement | MathMLElement,
+const rs = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
+	element: E,
     property: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.style.removeProperty(property)
 	return element
 }, [element, `s:${property}`])
@@ -159,12 +159,12 @@ const rs = /*#__PURE__*/ (
  * 
  * @param element - The element whose inner HTML to update
  * @param content - The new inner HTML
- * @returns {Promise<Element>}
+ * @returns {Promise<E>}
  */
-const dangerouslySetInnerHTML = /*#__PURE__*/ (
-	element: HTMLElement,
+const dangerouslySetInnerHTML = /*#__PURE__*/ <E extends Element>(
+	element: E,
     content: string
-): Promise<Element> => enqueue(() => {
+): Promise<E> => enqueue(() => {
 	element.innerHTML = content
     return element
 }, [element, 'h'])
