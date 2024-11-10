@@ -11,7 +11,7 @@ import { isComment, safeSetAttribute } from './util'
  * @param attributes - The attributes to set on the new element
  * @returns {Promise<Element>}
  */
-const ce = /*#__PURE__*/ <E extends Element>(
+const ce = <E extends Element>(
 	parent: E,
 	tag: string,
 	attributes: Record<string, string> = {},
@@ -31,7 +31,7 @@ const ce = /*#__PURE__*/ <E extends Element>(
  * @param element -	The element to remove
  * @returns {Promise<null>}
  */
-const re = /*#__PURE__*/ <E extends Element>(
+const re = <E extends Element>(
 	element: E
 ): Promise<null> => enqueue(() => {
 	element.remove()
@@ -45,7 +45,7 @@ const re = /*#__PURE__*/ <E extends Element>(
  * @param text - The new text content
  * @returns {Promise<E>}
  */
-const st = /*#__PURE__*/ <E extends Element>(
+const st = <E extends Element>(
 	element: E,
 	text: string
 ): Promise<E> => enqueue(() => {
@@ -64,7 +64,7 @@ const st = /*#__PURE__*/ <E extends Element>(
  * @param value - The new value
  * @returns {Promise<E>}
  */
-const sa = /*#__PURE__*/ <E extends Element>(
+const sa = <E extends Element>(
 	element: E,
     attribute: string,
     value: string
@@ -80,7 +80,7 @@ const sa = /*#__PURE__*/ <E extends Element>(
  * @param attribute - The attribute to remove
  * @returns {Promise<E>}
  */
-const ra = /*#__PURE__*/ <E extends Element>(
+const ra = <E extends Element>(
 	element: E,
     attribute: string
 ): Promise<E> => enqueue(() => {
@@ -96,7 +96,7 @@ const ra = /*#__PURE__*/ <E extends Element>(
  * @param value - The new value
  * @returns {Promise<E>}
  */
-const ta = /*#__PURE__*/ <E extends Element>(
+const ta = <E extends Element>(
 	element: E,
     attribute: string,
     value: boolean
@@ -113,7 +113,7 @@ const ta = /*#__PURE__*/ <E extends Element>(
  * @param value - The new value
  * @returns {Promise<E>}
  */
-const tc = /*#__PURE__*/ <E extends Element>(
+const tc = <E extends Element>(
 	element: E,
     token: string,
     value: boolean
@@ -130,7 +130,7 @@ const tc = /*#__PURE__*/ <E extends Element>(
  * @param value - The new value
  * @returns {Promise<E>}
  */
-const ss = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
+const ss = <E extends HTMLElement | SVGElement | MathMLElement>(
 	element: E,
     property: string,
     value: string
@@ -146,7 +146,7 @@ const ss = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
  * @param property - The style property to remove
  * @returns {Promise<E>}
  */
-const rs = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
+const rs = <E extends HTMLElement | SVGElement | MathMLElement>(
 	element: E,
     property: string
 ): Promise<E> => enqueue(() => {
@@ -161,7 +161,7 @@ const rs = /*#__PURE__*/ <E extends HTMLElement | SVGElement | MathMLElement>(
  * @param content - The new inner HTML
  * @returns {Promise<E>}
  */
-const dangerouslySetInnerHTML = /*#__PURE__*/ <E extends Element>(
+const dangerouslySetInnerHTML = <E extends Element>(
 	element: E,
     content: string
 ): Promise<E> => enqueue(() => {
