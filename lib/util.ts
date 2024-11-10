@@ -23,6 +23,7 @@ const safeSetAttribute = /*#__PURE__*/ (
 	value: string
 ): void => {
 	if (!isSafeAttribute(attr)) throw new Error(`Unsafe attribute: ${attr}`)
+	value = String(value).trim()
 	if (!isSafeURL(value)) throw new Error(`Unsafe URL for ${attr}: ${value}`)
 	element.setAttribute(attr, value)
 }

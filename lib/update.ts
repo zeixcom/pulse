@@ -9,14 +9,14 @@ import { isComment, safeSetAttribute } from './util'
  * @param element - The parent element to append the new element to
  * @param tag - The tag name of the new element
  * @param attributes - The attributes to set on the new element
- * @returns {Promise<HTMLElement>}
+ * @returns {Promise<Element>}
  */
 const ce = /*#__PURE__*/ <E extends Element>(
 	parent: E,
 	tag: string,
 	attributes: Record<string, string> = {},
 	text?: string
-): Promise<HTMLElement> => enqueue(() => {
+): Promise<Element> => enqueue(() => {
 	const child = document.createElement(tag)
 	for (const [key, value] of Object.entries(attributes))
 		safeSetAttribute(child, key, value)

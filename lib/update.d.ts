@@ -4,9 +4,9 @@
  * @param element - The parent element to append the new element to
  * @param tag - The tag name of the new element
  * @param attributes - The attributes to set on the new element
- * @returns {Promise<HTMLElement>}
+ * @returns {Promise<Element>}
  */
-declare const ce: <E extends Element>(parent: E, tag: string, attributes?: Record<string, string>, text?: string) => Promise<HTMLElement>;
+declare const ce: <E extends Element>(parent: E, tag: string, attributes?: Record<string, string>, text?: string) => Promise<Element>;
 /**
  * Remove the given element from its parent
  *
