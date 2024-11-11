@@ -46,27 +46,18 @@ A number of common simple DOM instructions are predefined. These functions take 
 
 The instructions have by design awkward short names. They are meant for frameworks and library use rather than directly by application developers.
 
-|----------|-------------------|---------------------------------------------|
 | Function | Description       | Arguments                                   |
 |----------|-------------------|---------------------------------------------|
 | `ce()`   | create an element | element, object of attributes, text content |
-|----------|-------------------|---------------------------------------------|
 | `re()`   | remove an element | element                                     |
-|----------|-------------------|---------------------------------------------|
 | `st()`   | set text content  | element, text content                       |
-|----------|-------------------|---------------------------------------------|
 | `sa()`   | set attribute     | element, attribute name, value              |
-|----------|-------------------|---------------------------------------------|
 | `ra()`   | remove attribute  | element, attribute name                     |
-|----------|-------------------|---------------------------------------------|
 | `ta()`   | toggle attribute  | element, attribute name, force              |
-|----------|-------------------|---------------------------------------------|
 | `tc()`   | toggle class      | element, class token, force                 |
-|----------|-------------------|---------------------------------------------|
 | `ss()`   | set style prop    | element, CSS property, value                |
-|----------|-------------------|---------------------------------------------|
 | `rs()`   | remove style prop | element, CSS property                       |
-|----------|-------------------|---------------------------------------------|
+
 
  One function is not short, also by design, because it bypasses sanitization – and should be used only with HTML from trusted sources: `dangerouslySetInnerHTML`.
 
