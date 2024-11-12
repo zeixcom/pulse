@@ -2,7 +2,7 @@
 
 Version 0.9.2
 
-**Pulse** schedules DOM updates, debounced with requestAnimationFrame
+**Pulse** – scheduled DOM updates, debounced with requestAnimationFrame
 
 ## Key Features
 
@@ -24,7 +24,7 @@ bun add @efflore/pulse
 
 ### Enqueue DOM Updates
 
-Add instructions to update the DOM to the scheduler with `enqueue()`. The first argument is the callback function to be executed before the next screen refresh with `requestAnimationFrame()`. The second argument is a tuple of the target element and a deduplication key. If another instruction for with the same deduplication tuple is enqueued, only the last one will be executed.
+Add instructions to update the DOM to the scheduler with `enqueue()`. The first argument is the callback function to be executed before the next screen refresh with `requestAnimationFrame()`. The optional second argument is a tuple of the target element and a deduplication key. If another instruction for with the same deduplication tuple is enqueued, only the last one will be executed.
 
 ```js
 import { enqueue } from '@efflore/pulse'
