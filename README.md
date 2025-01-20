@@ -1,6 +1,6 @@
 # Pulse
 
-Version 0.9.2
+Version 0.9.3
 
 **Pulse** – scheduled DOM updates, debounced with requestAnimationFrame
 
@@ -14,10 +14,10 @@ Version 0.9.2
 
 ```bash
 # with npm
-npm install @efflore/pulse
+npm install @zeix/pulse
 
 # or with bun
-bun add @efflore/pulse
+bun add @zeix/pulse
 ```
 
 ## Basic Usage
@@ -27,7 +27,7 @@ bun add @efflore/pulse
 Add instructions to update the DOM to the scheduler with `enqueue()`. The first argument is the callback function to be executed before the next screen refresh with `requestAnimationFrame()`. The optional second argument is a tuple of the target element and a deduplication key. If another instruction for with the same deduplication tuple is enqueued, only the last one will be executed.
 
 ```js
-import { enqueue } from '@efflore/pulse'
+import { enqueue } from '@zeix/pulse'
 
 const markdownSource = document.querySelector('.editor textarea')
 const markdownSection = document.querySelector('section.markdown')
@@ -66,7 +66,7 @@ The instructions have by design awkward short names. They are meant for framewor
  Sometimes you need to wait until the screen refresh took place. Use `await animationFrame()` in async functions to yield the control back to the browser for other tasks while the script is waiting.
 
  ```js
- import { animationFrame } from '@efflore/pulse'
+ import { animationFrame } from '@zeix/pulse'
 
  const userProfile = document.querySelector('user-profile')
 
