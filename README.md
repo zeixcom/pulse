@@ -1,3 +1,15 @@
+# Pulse has been integrated in Le Truc
+
+See: https://github.com/zeixcom/le-truc
+
+The `requestAnimationFrame`-based scheduler and its DOM effects are now part of Le Truc.
+
+This repository will not be updated anymore. We strongly suggest to switch to Le Truc, which let's you break application logic into composable Web Components, loosly coupled by a highly performant signal graph.
+
+This exploration was never meant to be a complete solution, but complemented by a reactive state management and a components architecture. Le Truc is exactly that.
+
+---
+
 # Pulse
 
 Version 0.9.3
